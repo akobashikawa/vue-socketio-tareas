@@ -1,6 +1,3 @@
-import config from '../config.js';
-const apiBaseUrl = config.apiBaseUrl;
-
 const TareasCreador = {
   props: { id: { type: String } },
 
@@ -27,7 +24,7 @@ const TareasCreador = {
       itemDtoJson: '',
       created: {},
       idTarea: null,
-      createUrl: `${apiBaseUrl}/api/tareas`,
+      createUrl: '/api/tareas',
 
       errorGet: null,
       errorCreate: null,

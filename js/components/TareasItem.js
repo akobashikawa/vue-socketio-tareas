@@ -1,6 +1,3 @@
-import config from '../config.js';
-const apiBaseUrl = config.apiBaseUrl;
-
 const TareasItem = {
   props: { id: { type: String } },
 
@@ -113,9 +110,9 @@ const TareasItem = {
 
     updateUrls() {
       const idTarea = this.idTarea;
-      this.url = `${apiBaseUrl}/api/tareas/${idTarea}`;
-      this.updateUrl = `${apiBaseUrl}/api/tareas/${idTarea}`;
-      this.deleteUrl = `${apiBaseUrl}/api/tareas/${idTarea}`;
+      this.url = `/api/tareas/${idTarea}`;
+      this.updateUrl = `/api/tareas/${idTarea}`;
+      this.deleteUrl = `/api/tareas/${idTarea}`;
     },
 
     async getItem() {

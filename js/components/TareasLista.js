@@ -1,6 +1,3 @@
-import config from '../config.js';
-const apiBaseUrl = config.apiBaseUrl;
-
 const TareasLista = {
   template: `<div>
     
@@ -40,7 +37,7 @@ const TareasLista = {
     updateUrl() {
       const qs = new URLSearchParams(this.params).toString();
       console.log(qs);
-      this.url = `${apiBaseUrl}/api/tareas`;
+      this.url = `/api/tareas`;
     },
 
     async getItems() {
