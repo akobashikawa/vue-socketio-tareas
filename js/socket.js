@@ -1,5 +1,5 @@
 import config from './config.js';
-const apiBaseUrl = config.apiBaseUrl;
+const socketBaseUrl = config.socketBaseUrl;
 
 import { reactive } from "vue";
 import { io } from "socket.io-client";
@@ -12,9 +12,9 @@ export const state = reactive({
 
 // "undefined" means the URL will be computed from the `window.location` object
 // const URL = process.env.NODE_ENV === "production" ? undefined : "http://localhost:8089";
-console.log({ apiBaseUrl });
+console.log({ socketBaseUrl });
 
-export const socket = io(apiBaseUrl);
+export const socket = io(socketBaseUrl);
 
 socket.on("connect", () => {
   state.connected = true;

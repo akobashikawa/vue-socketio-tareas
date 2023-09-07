@@ -125,6 +125,7 @@ const TareasItem = {
         const response = await axios.get(this.url);
         this.item = response.data;
       } catch (error) {
+        this.item = null;
         console.log(error);
         this.errorGet = `${error.message}\n${JSON.stringify(error.response.data)}`;
       }
@@ -157,9 +158,9 @@ const TareasItem = {
         if (deleted) {
           // this.idTarea = null;
           // this.item = null;
-          this.getItem();
-          this.$emit('itemdeleted', this.idTarea);
         }
+        this.getItem();
+        this.$emit('itemdeleted', this.idTarea);
       } catch (error) {
         console.log(error);
         this.errorDelete = `${error.message}\n${JSON.stringify(error.response.data)}`;
