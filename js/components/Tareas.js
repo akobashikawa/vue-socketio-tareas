@@ -65,19 +65,19 @@ const Tareas = {
   },
 
   mounted() {
-    socket.on('tareaCreated', (msg) => {
-      console.log(msg);
-      this.updateLista();
+    socket.on('tareaCreated', (created) => {
+      console.log(created);
+      this.updateItem(created.id);
     });
 
-    socket.on('tareaUpdated', (msg) => {
-      console.log(msg);
-      this.updateLista();
+    socket.on('tareaUpdated', (updated) => {
+      console.log(updated);
+      this.updateItem(updated.id);
     });
 
-    socket.on('tareaDeleted', (msg) => {
-      console.log(msg);
-      this.updateLista();
+    socket.on('tareaDeleted', (deleted) => {
+      console.log(deleted);
+      this.updateItem(deleted);
     });
   },
 

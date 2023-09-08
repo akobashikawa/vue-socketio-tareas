@@ -99,6 +99,9 @@ const TareasItem = {
     },
 
     item(newValue) {
+      if (!newValue) {
+        return;
+      }
       const itemDto = {
         texto: newValue.texto,
       };

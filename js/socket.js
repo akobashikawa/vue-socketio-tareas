@@ -14,20 +14,27 @@ export const state = reactive({
 // const URL = process.env.NODE_ENV === "production" ? undefined : "http://localhost:8089";
 console.log({ socketBaseUrl });
 
-export const socket = io(socketBaseUrl);
+export const socket = io(socketBaseUrl, {
+  reconnection: false,
+  transports: ['polling', 'websocket']
+});
 
-socket.on("connect", () => {
+console.log('socket.io');
+
+socket.on('connect', () => {
+  console.log('connect');
   state.connected = true;
 });
 
-socket.on("disconnect", () => {
+socket.on('disconnect', () => {
+  console.log('disconnect');
   state.connected = false;
 });
 
-socket.on("foo", (...args) => {
+socket.on('foo', (...args) => {
   state.fooEvents.push(args);
 });
 
-socket.on("bar", (...args) => {
+socket.on('bar', (...args) => {
   state.barEvents.push(args);
 });
